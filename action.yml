@@ -1,0 +1,16 @@
+name: "Lint Ren'Py Project"
+author: 'Project Alice'
+description: "Lint your project against a specified Ren'Py SDK version"
+inputs:
+  sdk-version:
+    description: "The version of the Ren'Py SDK to use"
+    required: true
+    default: '7.3.2'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.sdk-version }}
+branding:
+  color: 'green'
+  icon: 'check'
