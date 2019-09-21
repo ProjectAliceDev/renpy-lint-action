@@ -11,6 +11,6 @@ tar -xf ./${sdk_name}.tar.bz2
 rm ./${sdk_name}.tar.bz2
 mv ./${sdk_name} ../renpy
 
-echo "Building the project..."
+echo "Linting the project at $2..."
 rm -rf game/README.html
-../renpy/renpy.sh . lint
+../renpy/renpy.sh $2 lint

@@ -6,11 +6,16 @@ inputs:
     description: "The version of the Ren'Py SDK to use"
     required: true
     default: '7.3.2'
+  project-dir:
+    description: "The path to the directory where the project exists"
+    required: true
+    default: '.'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.sdk-version }}
+    - ${{ inputs.project-dir }}
 branding:
   color: 'green'
   icon: 'check'
