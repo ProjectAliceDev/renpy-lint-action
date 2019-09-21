@@ -15,8 +15,6 @@ This GitHub action allows you to run the linter on a Ren'Py visual novel project
     SDL_VIDEODRIVER: dummy
 ```
 
-> Note: This action will assume that the Ren'Py project is the repository's root rather than a separate directory.
-
 **Required Parameters:**
 
 - `sdk-version`: The version of the Ren'Py SDK to use while linting. Will default to `7.3.2` if none is found.
