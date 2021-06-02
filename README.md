@@ -32,7 +32,7 @@ or to reuse a previously cached download of the sdk utilizing the [GitHub Cache 
     SDL_AUDIODRIVER: dummy
     SDL_VIDEODRIVER: dummy
 - name: Cache SDK
-  id: restore-cache
+  id: save-cache
   if: steps.restore-cache.outputs.cache-hit != 'true'
   uses: actions/cache@v2
   with:
