@@ -21,7 +21,7 @@ or to reuse a previously cached download of the sdk utilizing the [GitHub Cache 
   uses: actions/cache@v2
   with:
     path: ../renpy
-    key:   ${{ runner.os }}-sdk-${{ steps.lintProject.with.sdk-version }}
+    key: ${{ runner.os }}-sdk-${{ steps.lintProject.with.sdk-version }}
 - name: Lint VN project
   id: lintProject
   uses: ProjectAliceDev/renpy-lint-action@master
@@ -37,7 +37,7 @@ or to reuse a previously cached download of the sdk utilizing the [GitHub Cache 
   uses: actions/cache@v2
   with:
     path: ../renpy
-    key:  ${{ runner.os }}-sdk-${{ steps.lintProject.with.sdk-version }}
+    key: ${{ runner.os }}-sdk-${{ steps.lintProject.with.sdk-version }}
 ```
 
 **Required Parameters:**
