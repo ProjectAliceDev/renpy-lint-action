@@ -16,12 +16,18 @@ This GitHub action allows you to run the linter on a Ren'Py visual novel project
 ```
 or to reuse a previously cached download of the sdk utilizing the [GitHub Cache Action](https://github.com/marketplace/actions/cache)
 ```yml
+- name: Get SDK Version from config
+  id: lookupSdkVersion
+  uses: devorbitus/yq-action-output@v1.0
+  with:
+    # The file path would be to wherever this file is located
+    cmd: yq eval '.jobs.build.steps[] | select(.id == "lintProject") | .with.sdk-version' .github/workflows/renpy-linter-action.yml
 - name: Restore Cache
   id: restore-cache
   uses: actions/cache@v2
   with:
     path: ../renpy
-    key: ${{ runner.os }}-sdk-${{ steps.lintProject.with.sdk-version }}
+    key: ${{ runner.os }}-sdk-${{ steps.lookupSdkVersion.outputs.result }}
 - name: Lint VN project
   id: lintProject
   uses: ProjectAliceDev/renpy-lint-action@master
@@ -37,7 +43,7 @@ or to reuse a previously cached download of the sdk utilizing the [GitHub Cache 
   uses: actions/cache@v2
   with:
     path: ../renpy
-    key: ${{ runner.os }}-sdk-${{ steps.lintProject.with.sdk-version }}
+    key: ${{ runner.os }}-sdk-${{ steps.lookupSdkVersion.outputs.result }}
 ```
 
 **Required Parameters:**
