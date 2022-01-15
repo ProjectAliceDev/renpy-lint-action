@@ -15,6 +15,6 @@ else
   mv ./${sdk_name} ../renpy
 fi
 
-echo "Linting the project at $2..."
+echo "Linting the project at '$2'..."
 rm -rf game/README.html
 ../renpy/renpy.sh $2 lint
